@@ -152,7 +152,7 @@ All Graph API calls use the configured `OneDriveId` from `config.json` and authe
 - Creates `eduWorkFlow` root folder if not exists
 - Creates subfolders: `Archive`, `PolicyDocuments`, `PupilPassportStudents`, `ApplicationData`
 - Creates JSON files: Years.json, Terms.json, PassportStages.json, Needs.json
-- **Source:** `src/services/studentFolderService.ts` - `ensureDatabaseStructure()`
+- **Source:** `src/services/databaseSevice.ts` - `ensureDatabaseStructure()`
 
 ### 1.4 Logs
 
@@ -364,7 +364,7 @@ Base URL is configured via `config.json` `BackendUrl` field.
 - **URL:** `{BackendUrl}/userPresence?passportId={passportId}`
 - **Response:** Array of user names
 - **Source:** `src/services/userPresenceService.ts` - `getPresence()`
-
+<!-- 
 ### 2.3 RAG (Retrieval Augmented Generation)
 
 #### Load Documents
@@ -392,16 +392,16 @@ Base URL is configured via `config.json` `BackendUrl` field.
 - **Method:** `POST`
 - **URL:** `{BackendUrl}/compare`
 - **Body:** FormData with `file1` and `file2` fields
-- **Source:** `src/services/ragService.ts` - `compareDocuments()`
+- **Source:** `src/services/ragService.ts` - `compareDocuments()` -->
 
-### 2.4 Workbook Processing
+<!-- ### 2.4 Workbook Processing
 
 #### Process Workbook
 - **Method:** `POST`
 - **URL:** `{BackendUrl}/process-workbook`
 - **Headers:** `authToken: {token}`
 - **Body:** FormData (raw data)
-- **Source:** `src/services/workbookService.ts` - `processWorkbook()`
+- **Source:** `src/services/workbookService.ts` - `processWorkbook()` -->
 
 ### 2.5 Edit Counts
 
@@ -432,7 +432,7 @@ Base URL is configured via `config.json` `BackendUrl` field.
 - **Response:** `{ messages: [...] }` - extracts last message's `text` field
 - **Source:** `src/services/copilotService.ts` - `sendMessageToCopilot()`
 
-### 3.3 Copilot Use Cases
+<!-- ### 3.3 Copilot Use Cases
 
 | Use Case | Controller Function | Prompt File | Message Content |
 |---|---|---|---|
@@ -440,7 +440,7 @@ Base URL is configured via `config.json` `BackendUrl` field.
 | Generate Strategies | `getStrategiesFromCopilot()` | `getStratsPrompt.txt` | Prompt + targets + student name + count + saved strategies + policy docs |
 | Generate Evaluation | `getEvaluationFromCopilot()` | `getEvalPrompt.txt` | Prompt + rowDTO (needTitle, logs, smartTargets, etc.) |
 | Generate Provisions | `getProvisionsFromCopilot()` | `getProvisionsPrompt.txt` | Prompt + strategies JSON + existing provisions |
-| Generate Evaluation Summary | `getEvaluationSummaryFromCopilot()` | `getEvaluationSummaryPrompt.txt` | Prompt + evaluations + term + year + previous summary |
+| Generate Evaluation Summary | `getEvaluationSummaryFromCopilot()` | `getEvaluationSummaryPrompt.txt` | Prompt + evaluations + term + year + previous summary | -->
 
 ---
 
@@ -485,7 +485,7 @@ Base URL is configured via `config.json` `BackendUrl` field.
   id: string
   date: string
   comments: string
-  startegyEvaluation: logsStartegyEvaluation[]
+  strategyEvaluation: logsStrategyEvaluation[]
 }
 ```
 
@@ -525,3 +525,4 @@ Base URL is configured via `config.json` `BackendUrl` field.
   PassportSchoolPhrase: string
   BackendUrl: string
 }
+```
